@@ -1,0 +1,211 @@
+object formAgendamentos: TformAgendamentos
+  Left = 87
+  Top = 103
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = 'Agendamentos'
+  ClientHeight = 511
+  ClientWidth = 784
+  Color = clWhite
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
+  Font.Style = []
+  Position = poScreenCenter
+  TextHeight = 15
+  object Label2: TLabel
+    Left = 24
+    Top = 107
+    Width = 13
+    Height = 15
+    Caption = 'ID'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Segoe UI Semibold'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label4: TLabel
+    Left = 175
+    Top = 107
+    Width = 88
+    Height = 15
+    Caption = 'Nome Completo'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Segoe UI Semibold'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label3: TLabel
+    Left = 24
+    Top = 179
+    Width = 25
+    Height = 15
+    Caption = 'Data'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Segoe UI Semibold'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label5: TLabel
+    Left = 175
+    Top = 179
+    Width = 26
+    Height = 15
+    Caption = 'Hora'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Segoe UI Semibold'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label7: TLabel
+    Left = 24
+    Top = 243
+    Width = 93
+    Height = 15
+    Caption = 'Nome do M'#233'dico'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Segoe UI Semibold'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 784
+    Height = 81
+    Align = alTop
+    TabOrder = 0
+    object Label1: TLabel
+      Left = 24
+      Top = 24
+      Width = 156
+      Height = 25
+      Caption = 'Agendamentos'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -21
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object DBNavigator1: TDBNavigator
+      Left = 440
+      Top = 18
+      Width = 280
+      Height = 45
+      DataSource = DM.dsAgendamento
+      TabOrder = 0
+    end
+  end
+  object txtID: TDBEdit
+    Left = 24
+    Top = 128
+    Width = 132
+    Height = 23
+    DataField = 'id_agendamento'
+    DataSource = DM.dsAgendamento
+    ReadOnly = True
+    TabOrder = 1
+  end
+  object DBLookupComboBox1: TDBLookupComboBox
+    Left = 175
+    Top = 128
+    Width = 230
+    Height = 23
+    DataField = 'id_paciente_agend'
+    DataSource = DM.dsAgendamento
+    KeyField = 'id_paciente'
+    ListField = 'nome_paciente'
+    ListSource = DM.dsPaciente
+    TabOrder = 2
+  end
+  object DBEdit1: TDBEdit
+    Left = 24
+    Top = 200
+    Width = 111
+    Height = 23
+    DataField = 'data_agendamento'
+    DataSource = DM.dsAgendamento
+    MaxLength = 10
+    TabOrder = 3
+  end
+  object DBEdit2: TDBEdit
+    Left = 175
+    Top = 200
+    Width = 130
+    Height = 23
+    DataField = 'hora_agendamento'
+    DataSource = DM.dsAgendamento
+    MaxLength = 5
+    TabOrder = 4
+  end
+  object DBEdit3: TDBEdit
+    Left = 24
+    Top = 264
+    Width = 281
+    Height = 23
+    DataField = 'medico_agendamento'
+    DataSource = DM.dsAgendamento
+    TabOrder = 5
+  end
+  object DBGrid1: TDBGrid
+    Left = 440
+    Top = 128
+    Width = 320
+    Height = 313
+    DataSource = DM.dsAgendamento
+    TabOrder = 6
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -12
+    TitleFont.Name = 'Segoe UI'
+    TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'id_agendamento'
+        ReadOnly = True
+        Title.Caption = 'C'#243'd. Agendamento'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'id_paciente_agend'
+        ReadOnly = True
+        Title.Caption = 'C'#243'd. Paciente'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'data_agendamento'
+        ReadOnly = True
+        Title.Caption = 'Data'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'hora_agendamento'
+        ReadOnly = True
+        Title.Caption = 'Hora'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'medico_agendamento'
+        ReadOnly = True
+        Title.Caption = 'M'#233'dico'
+        Visible = True
+      end>
+  end
+end

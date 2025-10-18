@@ -1,0 +1,105 @@
+object DM: TDM
+  Height = 612
+  Width = 930
+  object Conexao: TFDConnection
+    Params.Strings = (
+      'Database=clinica'
+      'User_Name=root'
+      'Server=127.0.0.1'
+      'DriverID=MySQL')
+    Connected = True
+    LoginPrompt = False
+    Left = 40
+    Top = 32
+  end
+  object dsPaciente: TDataSource
+    AutoEdit = False
+    DataSet = tbPaciente
+    Left = 40
+    Top = 192
+  end
+  object tbPaciente: TFDTable
+    Active = True
+    AfterInsert = tbPacienteAfterInsert
+    IndexFieldNames = 'id_paciente'
+    Connection = Conexao
+    ResourceOptions.AssignedValues = [rvEscapeExpand]
+    TableName = 'clinica.paciente'
+    Left = 40
+    Top = 104
+    object tbPacienteid_paciente: TFDAutoIncField
+      FieldName = 'id_paciente'
+      Origin = 'id_paciente'
+      ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = False
+    end
+    object tbPacientecpf_paciente: TStringField
+      FieldName = 'cpf_paciente'
+      Origin = 'cpf_paciente'
+      Required = True
+      EditMask = '###.###.###-##;1;_'
+      Size = 14
+    end
+    object tbPacientenome_paciente: TStringField
+      FieldName = 'nome_paciente'
+      Origin = 'nome_paciente'
+      Required = True
+      Size = 80
+    end
+    object tbPacientecelular_paciente: TStringField
+      FieldName = 'celular_paciente'
+      Origin = 'celular_paciente'
+      Required = True
+      EditMask = '(##)#.####-####;1;_'
+      Size = 16
+    end
+    object tbPacientedata_cadastro: TDateField
+      FieldName = 'data_cadastro'
+      Origin = 'data_cadastro'
+      Required = True
+      EditMask = '##/##/####;1;_'
+    end
+  end
+  object tbAgendamento: TFDTable
+    Active = True
+    IndexFieldNames = 'id_agendamento'
+    Connection = Conexao
+    ResourceOptions.AssignedValues = [rvEscapeExpand]
+    TableName = 'clinica.agendamento'
+    Left = 136
+    Top = 104
+    object tbAgendamentoid_agendamento: TFDAutoIncField
+      FieldName = 'id_agendamento'
+      Origin = 'id_agendamento'
+      ReadOnly = False
+    end
+    object tbAgendamentoid_paciente_agend: TIntegerField
+      FieldName = 'id_paciente_agend'
+      Origin = 'id_paciente_agend'
+      Required = True
+    end
+    object tbAgendamentodata_agendamento: TDateField
+      FieldName = 'data_agendamento'
+      Origin = 'data_agendamento'
+      Required = True
+      EditMask = '##/##/####;1;_'
+    end
+    object tbAgendamentohora_agendamento: TTimeField
+      FieldName = 'hora_agendamento'
+      Origin = 'hora_agendamento'
+      Required = True
+      EditMask = '!90:00;1;_'
+    end
+    object tbAgendamentomedico_agendamento: TStringField
+      FieldName = 'medico_agendamento'
+      Origin = 'medico_agendamento'
+      Required = True
+      Size = 80
+    end
+  end
+  object dsAgendamento: TDataSource
+    DataSet = tbAgendamento
+    Left = 136
+    Top = 192
+  end
+end

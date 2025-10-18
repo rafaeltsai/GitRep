@@ -1,0 +1,19 @@
+# Delphi
+__history/
+__recovery/
+*.dcu
+*.~*
+*.bak
+*.local
+*.identcache
+*.tvsconfig
+*.exe
+*.dll
+*.dproj.local
+*.dproj.bak
+
+# XAMPP / Banco
+config.ini
+.env
+*.sql.bak
+/data/

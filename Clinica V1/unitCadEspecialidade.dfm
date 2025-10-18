@@ -1,0 +1,111 @@
+object formCadEspecialidade: TformCadEspecialidade
+  Left = 0
+  Top = 0
+  Caption = 'Especialidades'
+  ClientHeight = 511
+  ClientWidth = 784
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
+  Font.Style = []
+  Position = poScreenCenter
+  TextHeight = 15
+  object Label2: TLabel
+    Left = 40
+    Top = 104
+    Width = 71
+    Height = 15
+    Caption = 'Especialidade'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Segoe UI Semibold'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label3: TLabel
+    Left = 408
+    Top = 104
+    Width = 46
+    Height = 15
+    Caption = 'Pesquisa'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Segoe UI Semibold'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 784
+    Height = 81
+    Align = alTop
+    TabOrder = 0
+    object Label1: TLabel
+      Left = 24
+      Top = 24
+      Width = 285
+      Height = 25
+      Caption = 'Cadastro de Especialidades'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -21
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object DBNavigator1: TDBNavigator
+      Left = 440
+      Top = 18
+      Width = 280
+      Height = 45
+      TabOrder = 0
+    end
+  end
+  object txtEspecialidade: TDBEdit
+    Left = 40
+    Top = 125
+    Width = 269
+    Height = 23
+    DataField = 'desc_especialidade'
+    TabOrder = 1
+  end
+  object DBGrid1: TDBGrid
+    Left = 408
+    Top = 168
+    Width = 320
+    Height = 321
+    TabOrder = 2
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -12
+    TitleFont.Name = 'Segoe UI'
+    TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'id_especialidade'
+        ReadOnly = True
+        Title.Caption = 'C'#243'digo'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'desc_especialidade'
+        ReadOnly = True
+        Title.Caption = 'Especialidade'
+        Visible = True
+      end>
+  end
+  object txtBuscaEspec: TEdit
+    Left = 408
+    Top = 125
+    Width = 320
+    Height = 23
+    TabOrder = 3
+  end
+end
