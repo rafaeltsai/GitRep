@@ -13,6 +13,7 @@ object formCadPacientes: TformCadPacientes
   Font.Name = 'Segoe UI'
   Font.Style = []
   Position = poScreenCenter
+  OnShow = FormShow
   TextHeight = 15
   object Label2: TLabel
     Left = 48
@@ -105,6 +106,19 @@ object formCadPacientes: TformCadPacientes
     Font.Style = [fsBold]
     ParentFont = False
   end
+  object Label9: TLabel
+    Left = 224
+    Top = 211
+    Width = 56
+    Height = 15
+    Caption = 'Status CPF'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Segoe UI Semibold'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
   object Panel1: TPanel
     Left = 0
     Top = 0
@@ -162,6 +176,8 @@ object formCadPacientes: TformCadPacientes
     DataSource = DM.dsPaciente
     MaxLength = 14
     TabOrder = 2
+    OnChange = txtCPFChange
+    OnExit = txtCPFExit
   end
   object txtCelular: TDBEdit
     Left = 48
@@ -224,5 +240,14 @@ object formCadPacientes: TformCadPacientes
     Height = 23
     TabOrder = 5
     OnChange = txtBuscaChange
+  end
+  object txtStatusCPF: TEdit
+    Left = 224
+    Top = 232
+    Width = 133
+    Height = 23
+    Enabled = False
+    ReadOnly = True
+    TabOrder = 8
   end
 end

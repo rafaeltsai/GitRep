@@ -26,7 +26,14 @@ type
     Label7: TLabel;
     Label8: TLabel;
     DBNavigator1: TDBNavigator;
+    txtStatusCPF: TEdit;
+    Label9: TLabel;
     procedure txtBuscaChange(Sender: TObject);
+    procedure txtCPFExit(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure txtCPFChange(Sender: TObject);
+
+
   private
     { Private declarations }
   public
@@ -40,11 +47,32 @@ implementation
 
 {$R *.dfm}
 
-uses unitDM;
+uses unitDM, unitPrincipal;
+
+// Limpar o TEdit txtStatusCPF ao mudar de tela.
+procedure TformCadPacientes.FormShow(Sender: TObject);
+  begin
+    txtStatusCPF.Clear;
+  end;
 
 procedure TformCadPacientes.txtBuscaChange(Sender: TObject);
   begin
     DM.tbPaciente.Locate('nome_paciente', txtBusca.Text, [loPartialKey]);
+  end;
+
+
+{ Limpar o TEdit txtStatusCPF assim que algo for alterado no TEdit txtCPF }
+procedure TformCadPacientes.txtCPFChange(Sender: TObject);
+  begin
+    txtStatusCPF.Clear;
+  end;
+
+procedure TformCadPacientes.txtCPFExit(Sender: TObject);
+  begin
+    if formPrincipal.validaCPF(txtCPF.Text) then
+      txtStatusCPF.Text := 'Válido'
+    else
+      txtStatusCPF.Text := 'Inválido';
   end;
 
 end.
