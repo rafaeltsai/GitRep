@@ -3,9 +3,24 @@ unit unitCadPaciente;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Vcl.ExtCtrls, Data.DB,
-  Vcl.Buttons, Vcl.DBCtrls, Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.Mask;
+  Winapi.Windows,
+  Winapi.Messages,
+  System.SysUtils,
+  System.Variants,
+  System.Classes,
+  Vcl.Graphics,
+  Vcl.Controls,
+  Vcl.Forms,
+  Vcl.Dialogs,
+  Vcl.Menus,
+  Vcl.ExtCtrls,
+  Data.DB,
+  Vcl.Buttons,
+  Vcl.DBCtrls,
+  Vcl.Grids,
+  Vcl.DBGrids,
+  Vcl.StdCtrls,
+  Vcl.Mask;
 
 type
   TformCadPacientes = class(TForm)
@@ -47,7 +62,7 @@ implementation
 
 {$R *.dfm}
 
-uses unitDM, unitPrincipal;
+uses unitDM, unitPrincipal, uFuncoes;
 
 // Limpar o TEdit txtStatusCPF ao mudar de tela.
 procedure TformCadPacientes.FormShow(Sender: TObject);
@@ -66,10 +81,11 @@ procedure TformCadPacientes.txtCPFChange(Sender: TObject);
   begin
     txtStatusCPF.Clear;
   end;
-
+  { Informa o status do CPF no TEdit txtStatusCPF
+    ao lado do TEdit txtCPF }
 procedure TformCadPacientes.txtCPFExit(Sender: TObject);
   begin
-    if formPrincipal.validaCPF(txtCPF.Text) then
+    if validaCPF(txtCPF.Text) then
       txtStatusCPF.Text := 'Válido'
     else
       txtStatusCPF.Text := 'Inválido';

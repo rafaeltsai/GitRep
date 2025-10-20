@@ -5,7 +5,8 @@ uses
   unitPrincipal in 'unitPrincipal.pas' {formPrincipal},
   unitCadPaciente in 'unitCadPaciente.pas' {formCadPacientes},
   UnitCadAgendamentos in 'UnitCadAgendamentos.pas' {formAgendamentos},
-  unitDM in 'unitDM.pas' {DM: TDataModule};
+  unitDM in 'unitDM.pas' {DM: TDataModule},
+  uFuncoes in 'uFuncoes.pas';
 
 {$R *.res}
 
