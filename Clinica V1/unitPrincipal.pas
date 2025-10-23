@@ -42,11 +42,6 @@ type
   public
     { Public declarations }
 
-    {Validação de CPF}
-
-
-
-
 
   end;
 

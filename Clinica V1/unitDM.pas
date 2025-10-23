@@ -28,9 +28,10 @@ type
     tbAgendamentohora_agendamento: TTimeField;
     tbAgendamentomedico_agendamento: TStringField;
     tbAgendamentoespec_agendamento: TStringField;
+    tbPacientedtnasc_paciente: TDateField;
 
     procedure tbPacienteAfterInsert(DataSet: TDataSet);
-  private
+
     { Private declarations }
   public
     { Public declarations }
@@ -43,8 +44,15 @@ implementation
 
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
+uses
+uFuncoes,
+unitCadPaciente;
+
 
 {$R *.dfm}
+
+
+
 
 procedure TDM.tbPacienteAfterInsert(DataSet: TDataSet);
   begin

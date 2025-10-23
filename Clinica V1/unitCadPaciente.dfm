@@ -69,10 +69,10 @@ object formCadPacientes: TformCadPacientes
   end
   object Label6: TLabel
     Left = 48
-    Top = 331
-    Width = 90
+    Top = 387
+    Width = 74
     Height = 15
-    Caption = 'Data de Cadastro'
+    Caption = 'Data Cadastro'
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -12
@@ -112,6 +112,32 @@ object formCadPacientes: TformCadPacientes
     Width = 56
     Height = 15
     Caption = 'Status CPF'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Segoe UI Semibold'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label10: TLabel
+    Left = 48
+    Top = 331
+    Width = 108
+    Height = 15
+    Caption = 'Data de Nascimento'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Segoe UI Semibold'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label11: TLabel
+    Left = 224
+    Top = 331
+    Width = 30
+    Height = 15
+    Caption = 'Idade'
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -12
@@ -191,7 +217,7 @@ object formCadPacientes: TformCadPacientes
   end
   object txtDataCadastro: TDBEdit
     Left = 48
-    Top = 352
+    Top = 408
     Width = 129
     Height = 23
     DataField = 'data_cadastro'
@@ -249,5 +275,24 @@ object formCadPacientes: TformCadPacientes
     Enabled = False
     ReadOnly = True
     TabOrder = 8
+  end
+  object txtDataNascimento: TDBEdit
+    Left = 50
+    Top = 352
+    Width = 127
+    Height = 23
+    DataField = 'dtnasc_paciente'
+    DataSource = DM.dsPaciente
+    MaxLength = 10
+    TabOrder = 9
+  end
+  object Button1: TButton
+    Left = 224
+    Top = 352
+    Width = 75
+    Height = 25
+    Caption = 'Idade'
+    TabOrder = 10
+    OnClick = Button1Click
   end
 end

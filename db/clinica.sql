@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 18/10/2025 às 15:24
+-- Tempo de geração: 23/10/2025 às 03:18
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.0.30
 
@@ -47,8 +47,17 @@ CREATE TABLE `paciente` (
   `cpf_paciente` varchar(14) NOT NULL,
   `nome_paciente` varchar(80) NOT NULL,
   `celular_paciente` varchar(16) NOT NULL,
+  `dtnasc_paciente` date NOT NULL,
   `data_cadastro` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Despejando dados para a tabela `paciente`
+--
+
+INSERT INTO `paciente` (`id_paciente`, `cpf_paciente`, `nome_paciente`, `celular_paciente`, `dtnasc_paciente`, `data_cadastro`) VALUES
+(2, '378.070.128-62', 'Rafael Turino Sai', '(11)9.9999-6666', '1990-01-18', '2025-10-19'),
+(4, '031.118.418-98', 'Maria do Carmo Turino Sai', '(11)9.6399-6775', '1954-03-11', '2025-10-19');
 
 --
 -- Índices para tabelas despejadas
@@ -82,7 +91,7 @@ ALTER TABLE `agendamento`
 -- AUTO_INCREMENT de tabela `paciente`
 --
 ALTER TABLE `paciente`
-  MODIFY `id_paciente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_paciente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restrições para tabelas despejadas

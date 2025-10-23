@@ -13,14 +13,12 @@ object DM: TDM
     Top = 32
   end
   object dsPaciente: TDataSource
-    AutoEdit = False
     DataSet = tbPaciente
     Left = 40
     Top = 192
   end
   object tbPaciente: TFDTable
     Active = True
-    AfterInsert = tbPacienteAfterInsert
     IndexFieldNames = 'id_paciente'
     Connection = Conexao
     ResourceOptions.AssignedValues = [rvEscapeExpand]
@@ -57,6 +55,12 @@ object DM: TDM
       FieldName = 'data_cadastro'
       Origin = 'data_cadastro'
       Required = True
+      EditMask = '##/##/####;1;_'
+    end
+    object tbPacientedtnasc_paciente: TDateField
+      AutoGenerateValue = arDefault
+      FieldName = 'dtnasc_paciente'
+      Origin = 'dtnasc_paciente'
       EditMask = '##/##/####;1;_'
     end
   end

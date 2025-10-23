@@ -43,10 +43,15 @@ type
     DBNavigator1: TDBNavigator;
     txtStatusCPF: TEdit;
     Label9: TLabel;
+    txtDataNascimento: TDBEdit;
+    Label10: TLabel;
+    Label11: TLabel;
+    Button1: TButton;
     procedure txtBuscaChange(Sender: TObject);
     procedure txtCPFExit(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure txtCPFChange(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
 
 
   private
@@ -70,6 +75,7 @@ procedure TformCadPacientes.FormShow(Sender: TObject);
     txtStatusCPF.Clear;
   end;
 
+
 procedure TformCadPacientes.txtBuscaChange(Sender: TObject);
   begin
     DM.tbPaciente.Locate('nome_paciente', txtBusca.Text, [loPartialKey]);
@@ -81,6 +87,7 @@ procedure TformCadPacientes.txtCPFChange(Sender: TObject);
   begin
     txtStatusCPF.Clear;
   end;
+
   { Informa o status do CPF no TEdit txtStatusCPF
     ao lado do TEdit txtCPF }
 procedure TformCadPacientes.txtCPFExit(Sender: TObject);
@@ -90,5 +97,16 @@ procedure TformCadPacientes.txtCPFExit(Sender: TObject);
     else
       txtStatusCPF.Text := 'Inválido';
   end;
+
+
+procedure TformCadPacientes.Button1Click(Sender: TObject);
+  begin
+    ShowMessage(calculaIdade(StrToDate(txtDataNascimento.Text)));
+  end;
+
+
+
+
+
 
 end.

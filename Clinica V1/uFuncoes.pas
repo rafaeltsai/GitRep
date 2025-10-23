@@ -3,11 +3,48 @@ unit uFuncoes;
 interface
 
   Function validaCPF(const ACPF :String): Boolean;
+  Function calculaIdade(data_nascimento: TDateTime): String;
+
+
 
 implementation
 
   uses
-  System.SysUtils;
+  System.SysUtils,
+  System.DateUtils,
+  Winapi.Windows,
+  Winapi.Messages,
+  System.Variants,
+  System.Classes,
+  Vcl.Graphics,
+  Vcl.Controls,
+  Vcl.Forms,
+  Vcl.Dialogs,
+  Vcl.Menus,
+  Vcl.StdCtrls,
+  Vcl.Buttons,
+  Vcl.ExtCtrls,
+  Vcl.Imaging.jpeg,
+  unitCadPaciente;
+
+
+  //Função que calcula a idade e retorna uma String
+  function calculaIdade(data_nascimento: TDateTime): String;
+   var hoje, DataTemp: TDateTime;
+   ano, mes, dia: Integer;
+  begin
+     hoje := Date;
+     ano := YearsBetween(data_nascimento, hoje);
+     DataTemp := IncYear(data_nascimento, ano);
+     mes := MonthsBetween(DataTemp, hoje);
+     DataTemp := IncMonth(DataTemp, mes);
+     dia := DaysBetween(DataTemp, hoje);
+
+     Result :=
+     (IntToStr(ano) + ' anos ' + IntToStr(mes) + ' meses e ' + IntToStr(dia) + ' dias');
+
+  end;
+
 
   function validaCPF(const ACPF: String): Boolean;
   var cpfLimpo: String;
